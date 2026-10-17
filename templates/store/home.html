@@ -1,1 +1,74 @@
-{% extends 'base.html' %}{% load static %}{% block title %}رمـیصا | نیو کالکشن{% endblock %}{% block content %}<section class="hero"><div class="hero-image hero-collection-art"><img src="{% static 'images/romisa-collection.png' %}" alt="رمـیصا | کالکشن جدید"><em>01 / 03</em></div><div class="hero-copy"><label>NEW COLLECTION</label><h1>انتخابی برای<br>لحظه‌های خاص تو</h1><p>چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p><a class="btn" href="{% url 'shop' %}">مشاهده نیو کالکشن ←</a><div class="year">1405<small>RUMISA</small></div></div></section><section class="collection"><label>NEW COLLECTION</label><h2>نیو کالکشن</h2><div class="line"></div><div class="grid">{% for p in products %}<article class="card"><a href="{% url 'product' p.slug %}" class="photo">{% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}<span>تصویر {{ p.name }}</span>{% endif %}</a><h3>{{ p.name }}</h3><p>{{ p.fabric|default:'پوشش ساده و ماندگار' }}</p><a class="link" href="{% url 'product' p.slug %}">مشاهده محصول →</a></article>{% empty %}<article class="card"><div class="photo">عکس چادر صورتی</div><h3>چادر گلدار</h3><p>طرح گل‌های صورتی</p><a class="link" href="{% url 'shop' %}">مشاهده محصول →</a></article>{% endfor %}</div></section>{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}رمـیصا | نیو کالکشن{% endblock %}
+
+{% block content %}
+<main class="home-page">
+  {% with hero_product=products.0 %}
+  <section class="home-hero">
+    <div class="hero-art">
+      <div class="hero-art-inner">
+        {% if hero_product and hero_product.image %}
+          <img src="{{ hero_product.image.url }}" alt="{{ hero_product.name }}">
+        {% else %}
+          <span>جای تصویر چادر</span>
+          <small>تصویر محصول را از پنل مدیریت اضافه کنید</small>
+        {% endif %}
+      </div>
+      <em>01 / 03</em>
+    </div>
+
+    <div class="hero-copy">
+      <label>NEW COLLECTION</label>
+      <h1>انتخابی برای<br>لحظه‌های خاص تو</h1>
+      <p>چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p>
+      <a class="btn hero-btn" href="{% url 'shop' %}">مشاهده نیو کالکشن <span>←</span></a>
+      <div class="hero-year"><strong>1405</strong><small>RUMISA</small></div>
+    </div>
+
+    <div class="hero-side-copy">
+      <label>RUMISA EDIT</label>
+      <p>پوششی با ظرافت<br>برای هر روز و هر مناسبت</p>
+    </div>
+
+    <div class="hero-features">
+      <article class="feature-card"><span class="feature-number">01</span><div><h3>تازگی و ظرافت</h3><p>پارچه‌ای با کیفیت و طراحی دقیق برای انتخابی ماندگار</p></div></article>
+      <article class="feature-card"><span class="feature-number">02</span><div><h3>سبک و راحت</h3><p>فرمی راحت برای استفاده روزمره و استایل مرتب</p></div></article>
+      <article class="feature-card"><span class="feature-number">03</span><div><h3>جزئیات خاص</h3><p>طرح‌هایی که امضای رمـیصا را به نمایش می‌گذارند</p></div></article>
+    </div>
+  </section>
+  {% endwith %}
+
+  <section class="brand-row" aria-label="برندهای همکار">
+    <span>RUMISA</span><span>ATELIER</span><span>RUMISA</span><span>MODEST</span><span>RUMISA</span><span>COLLECTION</span>
+  </section>
+
+  <section class="collection home-collection">
+    <div class="section-heading">
+      <div><label>NEW COLLECTION</label><h2>زیباترین انتخاب‌های رمـیصا</h2></div>
+      <a class="outline-btn" href="{% url 'shop' %}">مشاهده همه محصولات <span>←</span></a>
+    </div>
+
+    <div class="collection-grid grid">
+      {% for p in products %}
+      <article class="card collection-card">
+        <a href="{% url 'product' p.slug %}" class="photo">
+          {% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}<span>جای تصویر محصول</span>{% endif %}
+          <span class="quick-view">مشاهده</span>
+        </a>
+        <div class="card-meta"><div><h3>{{ p.name }}</h3><p>{{ p.fabric|default:'پوشش ساده و ماندگار' }}</p></div>{% if p.price %}<strong>{{ p.price|floatformat:0 }} تومان</strong>{% endif %}</div>
+        <a class="link" href="{% url 'product' p.slug %}">مشاهده محصول <span>←</span></a>
+      </article>
+      {% empty %}
+      <article class="card collection-card"><a class="photo" href="{% url 'shop' %}"><span>جای تصویر محصول</span><span class="quick-view">مشاهده</span></a><div class="card-meta"><div><h3>چادر گلدار</h3><p>طرحی ظریف و متفاوت</p></div></div><a class="link" href="{% url 'shop' %}">مشاهده محصول <span>←</span></a></article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="home-editorial">
+    <div class="editorial-copy"><label>WHY RUMISA?</label><h2>بیشتر از یک چادر</h2><p>در رمـیصا، هر انتخاب بخشی از سبک و حال خوب توست؛ از پارچه و دوخت تا جزئیاتی که باعث می‌شوند یک چادر واقعاً برای تو باشد.</p><a class="outline-btn" href="{% url 'about' %}">بیشتر درباره ما <span>←</span></a></div>
+    <div class="editorial-cards"><article><span>✿</span><h3>کیفیت ماندگار</h3><p>انتخاب پارچه و دوخت با دقت</p></article><article><span>◇</span><h3>ارسال مطمئن</h3><p>سریع و مطمئن در سراسر کشور</p></article><article><span>♡</span><h3>پشتیبانی واقعی</h3><p>همیشه در کنار شما</p></article></div>
+  </section>
+</main>
+{% endblock %}
