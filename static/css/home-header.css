@@ -1,0 +1,40 @@
+/* Home page header proportions from the supplied Figma reference */
+.home-page ~ * { box-sizing: border-box; }
+body:has(.home-page) .header {
+  height: 45px;
+  min-height: 45px;
+  padding: 0 28px;
+  gap: 22px;
+  background: #fcf8f2;
+}
+
+body:has(.home-page) .brand {
+  width: 55px;
+  height: auto;
+  min-height: 40px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #875457;
+}
+
+body:has(.home-page) .brand span { font-size: 13px; }
+body:has(.home-page) .brand small { font-size: 5px; }
+
+body:has(.home-page) nav { gap: 2px; }
+body:has(.home-page) nav a {
+  height: 45px;
+  min-width: 70px;
+  padding: 0 7px;
+  font-size: 8px;
+}
+body:has(.home-page) nav a.active::after { bottom: 5px; width: 35px; height: 1px; }
+body:has(.home-page) .icons { gap: 8px; font-size: 14px; }
+body:has(.home-page) .icons a { width: 20px; height: 20px; }
+
+@media (max-width: 700px) {
+  body:has(.home-page) .header { padding: 0 14px; gap: 8px; }
+  body:has(.home-page) nav { overflow-x: auto; }
+  body:has(.home-page) nav a { min-width: 58px; font-size: 7px; }
+  body:has(.home-page) .icons { gap: 3px; }
+}
