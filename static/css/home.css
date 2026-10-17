@@ -1,0 +1,426 @@
+/* =========================================================
+   RUMISA — Editorial Home
+   Home-only styling based on the supplied Figma reference.
+========================================================= */
+
+.home-page {
+  width: 100%;
+  overflow: hidden;
+  background: #fcf8f2;
+  color: #302525;
+}
+
+.home-hero {
+  position: relative;
+  width: calc(100% - 52px);
+  min-height: 500px;
+  margin: 10px auto 0;
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: minmax(220px, .9fr) minmax(360px, 1.35fr) minmax(150px, .55fr);
+  grid-template-rows: 1fr 88px;
+  gap: 18px;
+  align-items: center;
+  background: #f8eee8;
+  border: 1px solid #eadbd5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, rgba(255,255,255,.22), transparent 42%);
+}
+
+.hero-copy {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  padding: 0 0 10px;
+  position: relative;
+  z-index: 2;
+  direction: rtl;
+}
+
+.hero-copy label,
+.hero-side-copy label,
+.section-heading label,
+.editorial-copy > label {
+  display: block;
+  color: #8a5659;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: .3px;
+  direction: ltr;
+}
+
+.hero-copy h1 {
+  margin: 25px 0 8px;
+  max-width: 330px;
+  color: #302525;
+  font-family: "Noto Sans Arabic-Bold", Tahoma, Arial, sans-serif;
+  font-size: clamp(31px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.48;
+  letter-spacing: -1.4px;
+}
+
+.hero-copy p {
+  margin: 0;
+  color: #796a67;
+  font-size: 9px;
+  line-height: 2;
+}
+
+.hero-btn {
+  min-height: 36px;
+  margin-top: 17px;
+  padding: 0 22px;
+  border-radius: 20px;
+  background: #875457;
+  color: #fff;
+  font-size: 9px;
+  gap: 12px;
+}
+
+.hero-btn:hover {
+  background: #694347;
+}
+
+.hero-year {
+  display: none;
+}
+
+.hero-art {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: 430px;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+}
+
+.hero-art-inner {
+  position: relative;
+  width: min(100%, 360px);
+  height: 100%;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 115px 115px 30px 30px;
+  background: #f3d8d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-art-inner::before {
+  content: "";
+  position: absolute;
+  width: 72%;
+  height: 96%;
+  border: 1px solid rgba(178,119,123,.14);
+  border-radius: 110px 110px 35px 35px;
+}
+
+.hero-art-inner img {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  height: 94%;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-art-inner span,
+.hero-art-inner small {
+  position: relative;
+  z-index: 3;
+  color: #8a5659;
+}
+
+.hero-art-inner span {
+  font-size: 13px;
+}
+
+.hero-art-inner small {
+  margin-top: 7px;
+  font-size: 8px;
+}
+
+.hero-art em {
+  position: absolute;
+  right: 50%;
+  bottom: -19px;
+  transform: translateX(50%);
+  color: #8a5659;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-style: normal;
+  direction: ltr;
+  z-index: 3;
+}
+
+.hero-side-copy {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: start;
+  justify-self: end;
+  width: 135px;
+  margin-top: 28px;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  direction: rtl;
+  text-align: right;
+}
+
+.hero-side-copy p {
+  margin: 14px 0 0;
+  color: #796a67;
+  font-size: 10px;
+  line-height: 2;
+}
+
+.hero-features {
+  position: static;
+  grid-column: 1 / 4;
+  grid-row: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+  align-self: end;
+  z-index: 3;
+}
+
+.feature-card {
+  min-height: 58px;
+  padding: 9px 11px;
+  background: rgba(252,248,242,.78);
+  border: 1px solid #eadbd5;
+  border-radius: 11px;
+  display: grid;
+  grid-template-columns: 23px 1fr;
+  gap: 7px;
+  align-items: start;
+}
+
+.feature-card:nth-child(1) { grid-column: 1; }
+.feature-card:nth-child(2) { grid-column: 2; }
+.feature-card:nth-child(3) { grid-column: 4; }
+
+.feature-number {
+  color: #a56c6d;
+  font-family: Georgia, serif;
+  font-size: 8px;
+  direction: ltr;
+}
+
+.feature-card h3 {
+  margin: 0 0 3px;
+  color: #8a5659;
+  font-family: "Noto Sans Arabic-SemiBold", Tahoma, Arial, sans-serif;
+  font-size: 8px;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #8a7a76;
+  font-size: 6.5px;
+  line-height: 1.8;
+}
+
+/* Keep the fourth feature visually on the right side of the hero.
+   The current HTML has three feature cards; the empty grid cell in the
+   middle intentionally creates the editorial spacing seen in the design. */
+
+.brand-row {
+  min-height: 62px;
+  padding: 0 7%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 12px;
+  color: #827474;
+}
+
+.brand-row span {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 7px;
+  letter-spacing: 1.2px;
+}
+
+.home-collection {
+  padding: 38px 3.2% 55px;
+}
+
+.section-heading {
+  margin: 0 2% 17px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section-heading h2 {
+  margin-top: 8px;
+  color: #302525;
+  font-family: "Noto Sans Arabic-Bold", Tahoma, Arial, sans-serif;
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.5;
+}
+
+.outline-btn {
+  min-width: 132px;
+  min-height: 34px;
+  padding: 0 15px;
+  border: 1px solid #cba1a0;
+  border-radius: 20px;
+  background: transparent;
+  color: #875457;
+  font-size: 8px;
+  gap: 9px;
+}
+
+.outline-btn:hover {
+  background: #875457;
+  color: #fff;
+}
+
+.collection-grid {
+  position: relative;
+  padding: 8px 4%;
+  min-height: 270px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  align-items: end;
+  background: #faeee7;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.collection-grid::after {
+  content: "انتخابی برای هر روز، برای هر لحظه";
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  color: #a08e89;
+  font-size: 7px;
+  white-space: nowrap;
+}
+
+.collection-card {
+  min-height: 225px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.collection-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.collection-card .photo {
+  width: 100%;
+  height: 205px;
+  border-radius: 110px 110px 34px 34px;
+  background: #f0cfd1;
+  border: 1px solid rgba(215,165,166,.4);
+}
+
+.collection-card:nth-child(2) .photo {
+  height: 218px;
+  background: #f5d9cc;
+  border-radius: 110px 110px 34px 34px;
+}
+
+.collection-card:nth-child(3) .photo {
+  background: #f1cfd0;
+}
+
+.collection-card:nth-child(4) .photo {
+  height: 212px;
+  background: #efcfd3;
+}
+
+.collection-card .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.collection-card .photo > span:first-child {
+  color: rgba(135,84,87,.35);
+  font-size: 18px;
+}
+
+.collection-card .quick-view,
+.collection-card .card-meta,
+.collection-card .link {
+  display: none;
+}
+
+.home-editorial {
+  margin: 15px 5% 70px;
+}
+
+@media (max-width: 980px) {
+  .home-hero {
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: auto auto auto;
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .hero-art { grid-column: 2; grid-row: 1 / 3; height: 430px; }
+  .hero-copy { grid-column: 1; grid-row: 1; }
+  .hero-side-copy { grid-column: 1; grid-row: 2; position: static; width: auto; margin: 0; }
+  .hero-features { grid-column: 1 / 3; grid-row: 3; }
+
+  .hero-features { grid-template-columns: repeat(3, 1fr); }
+  .feature-card:nth-child(1), .feature-card:nth-child(2), .feature-card:nth-child(3) { grid-column: auto; }
+
+  .collection-grid { gap: 18px; }
+}
+
+@media (max-width: 700px) {
+  .home-hero {
+    width: calc(100% - 24px);
+    margin-top: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero-art { order: 1; width: 100%; height: 360px; }
+  .hero-copy { order: 2; width: 100%; text-align: center; }
+  .hero-copy h1 { margin-left: auto; margin-right: auto; font-size: 30px; }
+  .hero-copy p { font-size: 10px; }
+  .hero-side-copy { order: 3; width: 100%; text-align: center; }
+  .hero-features { order: 4; width: 100%; display: grid; grid-template-columns: 1fr; }
+  .feature-card { min-height: 55px; }
+
+  .brand-row { grid-template-columns: repeat(3, 1fr); min-height: 75px; }
+  .brand-row span:nth-child(n+4) { display: none; }
+
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .section-heading h2 { font-size: 25px; }
+  .collection-grid { grid-template-columns: repeat(2, 1fr); padding: 10px 14px 35px; gap: 14px; }
+  .collection-card .photo,
+  .collection-card:nth-child(2) .photo,
+  .collection-card:nth-child(4) .photo { height: 180px; }
+}
