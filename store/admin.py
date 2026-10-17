@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import Category, ContactMessage, Order, OrderItem, Product, ProductVariant
 
+admin.site.site_header = 'مدیریت فروشگاه رمـیصا'
+admin.site.site_title = 'پنل مدیریت رمـیصا'
+admin.site.index_title = 'داشبورد مدیریت فروشگاه'
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display=('name','slug','active'); list_filter=('active',); search_fields=('name',); prepopulated_fields={'slug':('name',)}
