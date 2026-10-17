@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block title %}سفارش ثبت شد | رمـیصا{% endblock %}{% block content %}<section class="success"><span>✓</span><h1>سفارش شما ثبت شد</h1><p>شماره سفارش: #{{ order.id }}</p><a class="btn" href="{% url 'shop' %}">بازگشت به فروشگاه</a></section>{% endblock %}
