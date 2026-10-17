@@ -3,6 +3,8 @@
 
 {% block title %}رمـیصا | نیو کالکشن{% endblock %}
 
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
+
 {% block content %}
 <main class="home-page">
   {% with hero_product=products.0 %}
@@ -20,15 +22,14 @@
     </div>
 
     <div class="hero-copy">
-      <label>NEW COLLECTION</label>
+      <label>COLLECTION / 1405</label>
       <h1>انتخابی برای<br>لحظه‌های خاص تو</h1>
-      <p>چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p>
-      <a class="btn hero-btn" href="{% url 'shop' %}">مشاهده نیو کالکشن <span>←</span></a>
-      <div class="hero-year"><strong>1405</strong><small>RUMISA</small></div>
+      <p>با طرح‌هایی که امضای رمـیصا را دارند.</p>
+      <a class="btn hero-btn" href="{% url 'shop' %}">مشاهده کالکشن <span>←</span></a>
     </div>
 
     <div class="hero-side-copy">
-      <label>RUMISA EDIT</label>
+      <label>NEW COLLECTION</label>
       <p>پوششی با ظرافت<br>برای هر روز و هر مناسبت</p>
     </div>
 
@@ -36,18 +37,19 @@
       <article class="feature-card"><span class="feature-number">01</span><div><h3>تازگی و ظرافت</h3><p>پارچه‌ای با کیفیت و طراحی دقیق برای انتخابی ماندگار</p></div></article>
       <article class="feature-card"><span class="feature-number">02</span><div><h3>سبک و راحت</h3><p>فرمی راحت برای استفاده روزمره و استایل مرتب</p></div></article>
       <article class="feature-card"><span class="feature-number">03</span><div><h3>جزئیات خاص</h3><p>طرح‌هایی که امضای رمـیصا را به نمایش می‌گذارند</p></div></article>
+      <article class="feature-card"><span class="feature-number">04</span><div><h3>انتخاب مطمئن</h3><p>کیفیت، راحتی و ظرافت در یک انتخاب مطمئن</p></div></article>
     </div>
   </section>
   {% endwith %}
 
   <section class="brand-row" aria-label="برندهای همکار">
-    <span>RUMISA</span><span>ATELIER</span><span>RUMISA</span><span>MODEST</span><span>RUMISA</span><span>COLLECTION</span>
+    <span>LOGOTYPE</span><span>RUMISA</span><span>LOGOTYPE</span><span>ATELIER</span><span>RUMISA</span><span>LOGOTYPE</span>
   </section>
 
   <section class="collection home-collection">
     <div class="section-heading">
-      <div><label>NEW COLLECTION</label><h2>زیباترین انتخاب‌های رمـیصا</h2></div>
-      <a class="outline-btn" href="{% url 'shop' %}">مشاهده همه محصولات <span>←</span></a>
+      <div><label>منتخب رمـیصا</label><h2>زیباترین انتخاب‌های رمـیصا</h2></div>
+      <a class="outline-btn" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها <span>←</span></a>
     </div>
 
     <div class="collection-grid grid">
