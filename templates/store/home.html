@@ -1,72 +1,71 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}رمـیصا | فروشگاه چادر{% endblock %}
-
-{% block extra_css %}
-<style>
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
-  html, body { margin: 0; min-height: 100%; }
-  button:focus-visible { outline: 2px solid #4a90e2 !important; outline: -webkit-focus-ring-color auto 5px !important; }
-  a { text-decoration: none; }
-  @font-face { font-family: "Noto Sans Arabic-SemiBold"; src: local("Noto Sans Arabic-SemiBold"); }
-  @font-face { font-family: "Noto Sans Arabic-Regular"; src: local("Noto Sans Arabic-Regular"); }
-  @font-face { font-family: "Noto Sans Arabic-Bold"; src: local("Noto Sans Arabic-Bold"); }
-</style>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = { corePlugins: { preflight: false }, theme: { extend: {} }, plugins: [] };
-</script>
-{% endblock %}
-
-{% block site_header %}{% endblock %}
-{% block site_footer %}{% endblock %}
-
+{% block title %}رمـیصا | انتخابی برای لحظه‌های خاص تو{% endblock %}
 {% block content %}
-<div class="bg-[#fbf8f1] w-full min-w-[1440px] min-h-[1400px] relative">
-<header class="absolute top-0 left-0 w-full h-[79px]" aria-label="ناوبری اصلی">
-<a class="absolute top-6 left-12 w-[120px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[22px] text-left tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'home' %}" aria-label="صفحه اصلی رمـیصا">رمـیصا</a>
-<span class="absolute top-[51px] left-[50px] w-[100px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[8px] tracking-[0] leading-[normal]">rumisa_shop</span>
-<nav aria-label="لینک‌های سایت">
-<a class="absolute top-7 left-[565px] w-[90px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-sm text-center tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'home' %}" aria-current="page">خانه</a>
-<a class="left-[670px] absolute top-7 w-[90px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-sm text-center tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'shop' %}">فروشگاه</a>
-<a class="left-[775px] absolute top-7 w-[90px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-sm text-center tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'about' %}">درباره ما</a>
-<a class="left-[890px] absolute top-7 w-[90px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-sm text-center tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'contact' %}">تماس با ما</a>
-<a class="left-[1000px] absolute top-7 w-[90px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-sm text-center tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'cart' %}">سبد خرید</a>
-</nav>
-<span class="absolute top-[55px] left-[565px] w-[90px] h-0.5 bg-[#e2b2b2] rounded-[1px]" aria-hidden="true"></span>
-<div class="absolute top-[26px] left-[1250px] w-[35px] text-center"><button class="appearance-none border-0 p-0 bg-transparent w-full [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#865353] text-[22px] text-center tracking-[0] leading-[normal]" type="button" aria-label="جستجو">⌕</button></div>
-<div class="absolute top-[26px] left-[1298px] w-[35px] text-center"><a class="[font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#865353] text-xl text-center tracking-[0] leading-[normal]" href="/admin/" aria-label="حساب کاربری">♙</a></div>
-<div class="absolute top-[26px] left-[1340px] w-[35px] text-center"><a class="[font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#865353] text-[19px] text-center tracking-[0] leading-[normal]" href="{% url 'cart' %}" aria-label="سبد خرید">□</a></div>
-</header>
-<main>
-<section class="absolute top-[79px] left-[42px] w-[1355px] h-[610px] bg-[#f8f0ea] rounded-[28px] border border-solid border-[#e2d1cccc]" aria-labelledby="hero-title">
-<div class="absolute top-[90px] left-[510px] w-[420px] h-[590px] bg-[#f5e3e3] rounded-[116px]" aria-hidden="true"></div>
-<div class="absolute top-[130px] left-[75px] w-[350px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[11px] tracking-[0] leading-[normal]">COLLECTION&nbsp;&nbsp;/&nbsp;&nbsp;1405</div>
-<h1 id="hero-title" class="absolute top-[170px] left-[75px] w-[430px] [font-family:'Noto_Sans_Arabic-Bold',Helvetica] font-bold text-[#2d2323] text-[46px] text-left tracking-[0] leading-[normal] [direction:rtl]">انتخابی برای<br>لحظه‌های خاص تو</h1>
-<p class="absolute top-[305px] left-[75px] w-[340px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-base text-left tracking-[0] leading-[normal] [direction:rtl]">چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p>
-<a class="absolute top-[390px] left-[75px] w-[210px] h-[50px] bg-[#865353] rounded-[25px] flex items-center justify-center [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#fffdfb] text-sm text-center tracking-[0] leading-[normal] [direction:rtl]" href="{% url 'shop' %}">مشاهده کالکشن&nbsp;&nbsp;←</a>
-<div class="top-[132px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[11px] text-right absolute left-[1030px] w-[300px] tracking-[0] leading-[normal]">NEW COLLECTION</div>
-<p class="top-[178px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[19px] [direction:rtl] absolute left-[1030px] w-[300px] tracking-[0] leading-[normal]">پوششی با ظرافت<br>برای هر روز و هر مناسبت</p>
-<ol class="list-none m-0 p-0" aria-label="ویژگی‌های مجموعه">
-<li class="top-[470px] left-[70px] absolute w-[285px] h-[72px] bg-[#fbf8f1] rounded-xl border border-solid border-[#e2d1cccc]"><span class="top-[480px] left-[14px] absolute w-[30px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[9px] tracking-[0] leading-[normal]">01</span><h2 class="top-[477px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-xs tracking-[0] leading-[normal] [direction:rtl]">تازگی و ظرافت</h2><p class="top-[499px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[8.5px] tracking-[0] leading-[normal] [direction:rtl]">پارچه‌ای با کیفیت و طراحی دقیق برای انتخابی ماندگار</p></li>
-<li class="top-[558px] left-[70px] absolute w-[285px] h-[72px] bg-[#fbf8f1] rounded-xl border border-solid border-[#e2d1cccc]"><span class="top-[568px] left-[14px] absolute w-[30px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[9px] tracking-[0] leading-[normal]">02</span><h2 class="top-[565px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-xs tracking-[0] leading-[normal] [direction:rtl]">سبک و راحت</h2><p class="top-[587px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[8.5px] tracking-[0] leading-[normal] [direction:rtl]">فرمی راحت برای استفاده روزمره و استایل مرتب</p></li>
-<li class="top-[470px] left-[1075px] absolute w-[285px] h-[72px] bg-[#fbf8f1] rounded-xl border border-solid border-[#e2d1cccc]"><span class="top-[480px] left-[14px] absolute w-[30px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[9px] tracking-[0] leading-[normal]">03</span><h2 class="top-[477px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-xs tracking-[0] leading-[normal] [direction:rtl]">جزئیات خاص</h2><p class="top-[499px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[8.5px] tracking-[0] leading-[normal] [direction:rtl]">طرح‌هایی که امضای رمـیصا را به نمایش می‌گذارند</p></li>
-<li class="top-[558px] left-[1075px] absolute w-[285px] h-[72px] bg-[#fbf8f1] rounded-xl border border-solid border-[#e2d1cccc]"><span class="top-[568px] left-[14px] absolute w-[30px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-[9px] tracking-[0] leading-[normal]">04</span><h2 class="top-[565px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#865353] text-xs tracking-[0] leading-[normal] [direction:rtl]">انتخاب مطمئن</h2><p class="top-[587px] left-[45px] absolute w-[210px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[8.5px] tracking-[0] leading-[normal] [direction:rtl]">کیفیتی که برای هر موقعیت همراهت می‌ماند</p></li>
-</ol>
-{% with hero_product=products.0 %}{% if hero_product and hero_product.image %}<img class="absolute top-[79px] left-[532px] w-[358px] h-[586px] object-cover" src="{{ hero_product.image.url }}" alt="{{ hero_product.name }}" fetchpriority="high">{% endif %}{% endwith %}
-<span class="absolute top-[522px] left-[410px] w-[90px] h-px bg-[#b79e99]" aria-hidden="true"></span><span class="absolute top-[500px] left-[940px] w-[90px] h-px bg-[#b79e99]" aria-hidden="true"></span>
-<div class="absolute top-[640px] left-[75px] w-[100px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#865353] text-[10px] tracking-[0] leading-[normal]">01&nbsp;&nbsp;/&nbsp;&nbsp;03</div>
-</section>
-<section class="absolute top-[710px] left-0 w-full" aria-label="برند رمـیصا"><div class="left-[65px] absolute top-0 w-[170px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#6b5b5b] text-[9px] text-center">LOGOTYPE</div><div class="left-[300px] absolute top-0 w-[170px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#6b5b5b] text-[9px] text-center">RUMISA</div><div class="left-[535px] absolute top-0 w-[170px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#6b5b5b] text-[9px] text-center">LOGOTYPE</div><div class="left-[770px] absolute top-0 w-[170px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#6b5b5b] text-[9px] text-center">ATELIER</div><div class="left-[1005px] absolute top-0 w-[170px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#6b5b5b] text-[9px] text-center">RUMISA</div><div class="left-[1240px] absolute top-0 w-[170px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#6b5b5b] text-[9px] text-center">LOGOTYPE</div></section>
-<section aria-labelledby="collection-title"><div class="absolute top-[785px] left-[70px] w-[500px] [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#875456] text-xs text-left [direction:rtl]">کالکشن منتخب</div><h2 id="collection-title" class="absolute top-[815px] left-[70px] w-[650px] [font-family:'Noto_Sans_Arabic-Bold',Helvetica] font-bold text-[#2d2323] text-4xl text-left [direction:rtl]">زیباترین انتخاب‌های رمـیصا</h2><a class="top-[802px] h-12 bg-[#fbf8f1] rounded-3xl border border-solid border-[#e2d1cc] absolute left-[1160px] w-[210px] flex items-center justify-center [font-family:'Noto_Sans_Arabic-SemiBold',Helvetica] font-semibold text-[#875456] text-xs text-center [direction:rtl]" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها</a>
-<div class="absolute top-[891px] left-[42px] w-[1343px] h-[439px] bg-[#fbf0e5] rounded-[18px] border border-solid border-[#f8f1ea]" aria-hidden="true"></div>
-<div class="absolute top-[959px] left-[152px] w-[229px] h-[355px] bg-[#f1d4d4] rounded-[114.5px] border border-solid border-[#e2d1cc]"></div><div class="absolute top-[971px] left-[162px] w-[209px] h-[331px] rounded-[104.5px] border border-solid border-[#e2b7b259]"></div><div class="absolute top-[1108px] left-[255px] w-[22px] h-7 bg-[#8754561f] rounded-[11px/14px]"></div>
-<div class="top-[902px] left-[451px] bg-[#f6dccf] absolute w-[229px] h-[355px] rounded-[114.5px] border border-solid border-[#e2d1cc]"></div><div class="top-[914px] left-[461px] absolute w-[209px] h-[331px] rounded-[104.5px] border border-solid border-[#e2b7b259]"></div><div class="absolute top-[1051px] left-[554px] w-[22px] h-7 bg-[#8754561f] rounded-[11px/14px]"></div>
-<div class="absolute top-[975px] left-[761px] w-[229px] h-[355px] bg-[#f1d4d4] rounded-[114.5px] border border-solid border-[#e2d1cc]"></div><div class="absolute top-[987px] left-[771px] w-[209px] h-[331px] rounded-[104.5px] border border-solid border-[#e2b7b259]"></div><div class="absolute top-[1124px] left-[864px] w-[22px] h-7 bg-[#8754561f] rounded-[11px/14px]"></div>
-<div class="absolute top-[900px] left-[1045px] w-[229px] h-[355px] bg-[#f1d4d4] rounded-[114.5px] border border-solid border-[#e2d1cc]"></div><div class="absolute top-[912px] left-[1055px] w-[209px] h-[331px] rounded-[104.5px] border border-solid border-[#e2b7b259]"></div><div class="absolute top-[1049px] left-[1148px] w-[22px] h-7 bg-[#8754561f] rounded-[11px/14px]"></div>
-<p class="absolute top-[1345px] left-[585px] w-[270px] [font-family:'Noto_Sans_Arabic-Regular',Helvetica] font-normal text-[#6b5b5b] text-[10px] text-center [direction:rtl]">انتخاب‌های تازه، با امضای رمـیصا</p></section>
-</main>
+<div class="home-page">
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <label>COLLECTION / 1405</label>
+      <h1 id="hero-title">انتخابی برای<br>لحظه‌های خاص تو</h1>
+      <p>چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p>
+      <a class="btn hero-btn" href="{% url 'shop' %}">مشاهده کالکشن <span>←</span></a>
+    </div>
+
+    <div class="hero-side-copy">
+      <label>NEW COLLECTION</label>
+      <p>پوششی با ظرافت<br>برای هر روز و هر مناسبت</p>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-art-inner">
+        {% with hero_product=products.0 %}
+          {% if hero_product and hero_product.image %}
+            <img src="{{ hero_product.image.url }}" alt="{{ hero_product.name }}" fetchpriority="high">
+          {% else %}
+            <span>تصویر کالکشن</span>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+
+    <div class="hero-features left">
+      <article class="feature-card"><span class="feature-number">01</span><div><h3>تازگی و ظرافت</h3><p>پارچه‌ای با کیفیت و طراحی دقیق برای انتخابی ماندگار</p></div></article>
+      <article class="feature-card"><span class="feature-number">02</span><div><h3>سبک و راحت</h3><p>فرمی راحت برای استفاده روزمره و استایل مرتب</p></div></article>
+    </div>
+    <div class="hero-features right">
+      <article class="feature-card"><span class="feature-number">03</span><div><h3>جزئیات خاص</h3><p>طرح‌هایی که امضای رمـیصا را به نمایش می‌گذارند</p></div></article>
+      <article class="feature-card"><span class="feature-number">04</span><div><h3>انتخاب مطمئن</h3><p>کیفیتی که برای هر موقعیت همراهت می‌ماند</p></div></article>
+    </div>
+    <span class="hero-line left" aria-hidden="true"></span><span class="hero-line right" aria-hidden="true"></span>
+    <span class="hero-index">01 / 03</span>
+  </section>
+
+  <div class="brand-row" aria-label="برند رمـیصا">
+    <span>LOGOTYPE</span><span>RUMISA</span><span>LOGOTYPE</span><span>ATELIER</span><span>RUMISA</span><span>LOGOTYPE</span>
+  </div>
+
+  <section class="collection" aria-labelledby="collection-title">
+    <div class="collection-head">
+      <div><span class="collection-kicker">کالکشن منتخب</span><h2 id="collection-title">زیباترین انتخاب‌های رمـیصا</h2></div>
+      <a class="outline-btn" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها <span>←</span></a>
+    </div>
+
+    <div class="category-ellipses">
+      {% for item in categories %}
+        <a class="category-pill" href="{% url 'shop' %}?category={{ item.category.slug }}" aria-label="مشاهده دسته {{ item.category.name }}">
+          {% if item.product and item.product.image %}<img src="{{ item.product.image.url }}" alt="{{ item.category.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}
+          <span>{{ item.category.name }}</span>
+        </a>
+      {% empty %}
+        {% for p in products %}
+          <a class="category-pill" href="{% url 'product' p.slug %}" aria-label="{{ p.name }}">
+            {% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}
+            <span>{{ p.name }}</span>
+          </a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <p class="collection-note">انتخاب‌های رمـیصا برای روزهای ساده و لحظه‌های خاص</p>
+  </section>
 </div>
 {% endblock %}
