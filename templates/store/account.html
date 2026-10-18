@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}حساب کاربری | رمـیصا{% endblock %}
+{% block content %}
+<section class="account-page page-shell">
+  <div class="account-head">
+    <div><span class="collection-kicker">MY ACCOUNT</span><h1>حساب کاربری</h1><p>سلام {{ request.user.first_name|default:request.user.username }}، اینجا می‌تونی سفارش‌هایت را ببینی.</p></div>
+    <a class="btn btn-light" href="{% url 'logout' %}">خروج از حساب</a>
+  </div>
+  <div class="account-grid">
+    <div class="account-info">
+      <span class="info-label">اطلاعات حساب</span>
+      <h2>{{ request.user.get_full_name|default:request.user.username }}</h2>
+      <p>نام کاربری: {{ request.user.username }}</p>
+      <p>ایمیل: {{ request.user.email|default:'ثبت نشده' }}</p>
+    </div>
+    <div class="account-orders">
+      <div class="section-mini-head"><span class="info-label">آخرین سفارش‌ها</span><a href="{% url 'shop' %}">ادامه خرید</a></div>
+      {% if orders %}
+        {% for order in orders %}
+          <article class="order-row"><div><strong>سفارش #{{ order.id }}</strong><span>{{ order.created_at|date:'Y/m/d' }}</span></div><div><span>{{ order.get_status_display }}</span><b>{{ order.total|floatformat:0 }} تومان</b></div></article>
+        {% endfor %}
+      {% else %}<div class="empty-state small">هنوز سفارشی ثبت نکرده‌ای.</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
