@@ -1,1 +1,5 @@
-{% extends 'base.html' %}{% block title %}سفارش ثبت شد | رمـیصا{% endblock %}{% block content %}<section class="success"><span>✓</span><h1>سفارش شما ثبت شد</h1><p>شماره سفارش: #{{ order.id }}</p><a class="btn" href="{% url 'shop' %}">بازگشت به فروشگاه</a></section>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}سفارش ثبت شد | رمـیصا{% endblock %}
+{% block content %}
+<section class="success-box"><div class="check">✓</div><span class="collection-kicker">RUMISA / 1405</span><h1>سفارش تو ثبت شد</h1><p>ممنون که رمـیصا را انتخاب کردی.<br>شماره سفارش: <strong>#{{ order.id }}</strong></p><a class="btn" href="{% url 'shop' %}">بازگشت به فروشگاه</a></section>
+{% endblock %}
