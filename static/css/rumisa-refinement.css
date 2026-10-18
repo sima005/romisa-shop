@@ -1,42 +1,35 @@
 /* Rumisa visual refinement — Home / Editorial layout */
 :root{--rumisa-collection:#f8eee5;--rumisa-hero:#f8f0e8;--rumisa-pink:#f2d4d6;--rumisa-pink-alt:#f6dfd6;--rumisa-rose:#865255;--rumisa-line:#e4d5ce}
-
 .site-footer{background:var(--rumisa-collection)!important;border-top:1px solid var(--rumisa-line)!important}
-
-/* HOME HERO: enlarge the OUTER editorial box only. Keep the central oval at its original size. */
 .home-page{overflow:visible}
-.home-hero{position:relative;width:calc(100% - 8px);max-width:none;height:520px;margin:8px auto 0;background:var(--rumisa-collection);border:1px solid var(--rumisa-line);border-radius:22px;overflow:hidden}
+/* The OUTER hero panel is widened; the central oval keeps its size. */
+.home-hero{position:relative;width:calc(100% - 12px);max-width:none;height:520px;margin:8px auto 0;background:var(--rumisa-collection);border:1px solid var(--rumisa-line);border-radius:22px;overflow:hidden}
 .hero-copy{position:absolute;left:4%;top:66px;width:34%;max-width:500px;text-align:right;z-index:4}
 .hero-copy h1{font-size:clamp(31px,3.2vw,45px);line-height:1.48;margin:18px 0 10px}
 .hero-copy label,.hero-side-copy label,.collection-kicker{font-size:9px;letter-spacing:.6px;color:var(--rumisa-rose);font-weight:600;direction:ltr;display:block}
 .hero-copy-row{display:flex;align-items:center;justify-content:flex-start;gap:18px;direction:rtl}
-.hero-copy-row p{font-size:clamp(10px,.9vw,12px);line-height:2;color:#766b67;margin:0;flex:1}
+.hero-copy-row p{font-size:clamp(10px,.9vw,12px);line-height:2;color:#766b67;margin:0;flex:0 1 auto}
 .hero-copy-btn{flex:0 0 auto!important;margin:0!important;height:39px!important;min-height:39px!important;padding:0 22px!important;font-size:9px!important;border-radius:22px!important;white-space:nowrap}
 .hero-side-copy{position:absolute;right:4%;top:68px;width:18%;max-width:235px;text-align:right;z-index:5}
 .hero-side-copy p{font-size:clamp(10px,.95vw,13px);line-height:2;color:#766b67;margin:13px 0 0}
-
-/* Central image/slider keeps the original proportions; only the outer hero gets wider. */
+/* Central oval: DO NOT enlarge it. The photo is kept entirely inside the oval. */
 .hero-art{position:absolute;left:50%;top:12px;transform:translateX(-50%);width:clamp(300px,31vw,430px);height:496px;z-index:2}
 .hero-art-inner{width:100%;height:100%;background:var(--rumisa-pink)!important;border-radius:125px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero-slider{width:100%;height:100%;position:relative;overflow:hidden}
-.hero-slide{position:absolute!important;inset:0;width:100%!important;height:100%!important;object-fit:contain!important;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
+.hero-slider{width:100%;height:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-slide{position:absolute!important;inset:0!important;width:82%!important;height:82%!important;max-width:82%!important;max-height:82%!important;margin:auto!important;object-fit:contain!important;object-position:center center!important;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
 .hero-slide.is-active{opacity:1;visibility:visible}
-
 .hero-features{position:absolute;bottom:38px;z-index:5;width:24%;max-width:285px;gap:8px;display:flex;flex-direction:column}
 .hero-features.left{left:4%}.hero-features.right{right:4%}
 .feature-card{height:58px;background:#fffdfa;border-color:var(--rumisa-line)}
 .hero-line{position:absolute;width:65px;height:1px;background:#bba6a0;z-index:3;top:305px}
 .hero-line.left{left:calc(50% - 29%)}.hero-line.right{right:calc(50% - 29%)}
 .hero-index{position:absolute;left:4%;bottom:11px}
-
 .brand-row{height:68px;padding:0 7%;display:grid;grid-template-columns:repeat(6,1fr);align-items:center;gap:18px;color:#7f7470}
 .brand-row span{text-align:center;font:7px Georgia,serif;letter-spacing:1.1px;direction:ltr}
-
 .collection{padding:38px clamp(24px,5vw,70px) 60px}
 .collection-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}
 .collection-head h2{font-size:clamp(23px,2vw,30px);font-weight:700;letter-spacing:-.7px;margin:0}
 .outline-btn{height:38px;padding:0 21px;border:1px solid #d8bfc0;border-radius:22px;background:transparent;color:var(--rumisa-rose);font-size:9px;white-space:nowrap}
-
 .category-ellipses{height:270px;background:var(--rumisa-collection);border-radius:13px;padding:14px 6%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:clamp(14px,3vw,40px);overflow:hidden}
 .category-pill{display:flex!important;visibility:visible!important;opacity:1!important;height:215px!important;max-width:165px;width:100%;justify-self:center;border-radius:90px;background:var(--rumisa-pink)!important;border:1px solid rgba(210,166,166,.25);overflow:hidden;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
 .category-pill:nth-child(2n){background:var(--rumisa-pink-alt)!important;height:205px!important}
@@ -45,7 +38,6 @@
 .category-pill .pill-placeholder{display:block;width:12px;height:12px;border-radius:50%;background:rgba(150,105,105,.18)}
 .category-pill span{opacity:0!important;pointer-events:none}
 .collection-note{text-align:center;font-size:7px;color:#766b67;margin-top:13px}
-
 @media(max-width:900px){
  .home-hero{width:calc(100% - 10px);height:760px;border-radius:20px}
  .hero-art{top:112px;width:min(390px,48vw);height:400px}
