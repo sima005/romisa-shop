@@ -1,1 +1,73 @@
-{% extends 'base.html' %}{% block title %}{{ product.name }} | رمـیصا{% endblock %}{% block content %}<section class="product-page"><div class="product-image">{% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}">{% else %}تصویر محصول{% endif %}</div><div class="product-info"><h1>{{ product.name }}</h1><strong class="price">{{ product.final_price|floatformat:0 }} تومان</strong><p>{{ product.description|default:'فرم تمیز، پارچه سبک و ایستایی مناسب برای استفاده روزمره.' }}</p>{% if product.variants.all %}<form method="post" action="{% url 'add_to_cart' product.id %}">{% csrf_token %}<label>رنگ</label><div class="swatches">{% for v in product.variants.all %}<label><input type="radio" name="variant_id" value="{{ v.id }}" {% if forloop.first %}checked{% endif %}><i style="background:{{ v.color_hex }}" title="{{ v.color_name }}"></i><small>{{ v.color_name }}</small></label>{% endfor %}</div><label>سایز</label><button type="button" class="size">فری سایز</button><button class="btn full">افزودن به سبد</button></form>{% endif %}<p class="shipping">ارسال ۲ تا ۴ روز کاری • مرجوعی طبق قوانین فروشگاه</p><div class="tabs">توضیحات &nbsp; | &nbsp; مشخصات &nbsp; | &nbsp; نظرات</div></div></section>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}{{ product.name }} | رمـیصا{% endblock %}
+{% block content %}
+<section class="product-page">
+  <div class="product-breadcrumb"><a href="{% url 'home' %}">خانه</a> / <a href="{% url 'shop' %}">فروشگاه</a> / {{ product.name }}</div>
+  <div class="product-main">
+    <div class="product-copy">
+      <div class="eyebrow">CHADOR / RUMISA</div>
+      <h1>{{ product.name }}</h1>
+      <div class="stars">★★★★★</div>
+      <p class="description">{{ product.description|default:'چادری با فرم تمیز، پارچه سبک و ایستایی مناسب برای استفاده روزمره و موقعیت‌های خاص.' }}</p>
+
+      <div class="variant-title">انتخاب رنگ</div>
+      <form method="post" action="{% url 'add_to_cart' product.id %}" id="product-form">
+        {% csrf_token %}
+        <div class="swatches">
+          {% for v in product.variants.all %}
+            <label class="swatch" title="{{ v.color_name }}">
+              <input type="radio" name="variant_id" value="{{ v.id }}" data-price="{{ v.price }}" {% if forloop.first %}checked{% endif %}>
+              <i style="background:{{ v.color_hex }}"></i>
+              <small>{{ v.color_name }}</small>
+            </label>
+          {% empty %}
+            <input type="hidden" name="variant_id" value="">
+          {% endfor %}
+        </div>
+
+        <div class="variant-title">سایز</div>
+        <button type="button" class="size-choice">فری سایز</button>
+
+        <div class="product-price"><span id="product-price">{% if product.variants.all %}{{ product.variants.all.0.price|floatformat:0 }}{% else %}{{ product.final_price|floatformat:0 }}{% endif %}</span> تومان{% if product.discount_percent %}<del>{{ product.base_price|floatformat:0 }} تومان</del>{% endif %}</div>
+        <div class="product-actions">
+          <div class="quantity"><button type="button" data-minus>−</button><span id="qty">1</span><button type="button" data-plus>+</button></div>
+          <input type="hidden" name="quantity" value="1" id="quantity-input">
+          <button class="btn" type="submit">افزودن به سبد خرید</button>
+        </div>
+      </form>
+      <p class="shipping">ارسال ۲ تا ۴ روز کاری • مرجوعی طبق قوانین فروشگاه</p>
+    </div>
+
+    <div class="product-image">
+      {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}">{% else %}<span>تصویر محصول</span>{% endif %}
+    </div>
+  </div>
+
+  <div class="product-services">
+    <div class="service"><b>ارسال سریع</b>ارسال مطمئن سفارش</div>
+    <div class="service"><b>انتخاب آسان</b>راهنمای خرید و رنگ</div>
+    <div class="service"><b>کیفیت رمـیصا</b>انتخاب پارچه با دقت</div>
+    <div class="service"><b>پشتیبانی</b>همراه شما قبل و بعد از خرید</div>
+  </div>
+
+  <section class="recommendations">
+    <div class="collection-head"><div><span class="collection-kicker">RELATED PRODUCTS</span><h2>شاید این‌ها را هم بپسندید</h2></div><a class="outline-btn" href="{% url 'shop' %}">مشاهده فروشگاه <span>←</span></a></div>
+    <div class="recommend-grid">
+      {% for item in product.category.products.all|slice:":4" %}
+        {% if item.id != product.id and item.active %}
+          <a class="recommend-card" href="{% url 'product' item.slug %}"><div class="mini-photo">{% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.name }}">{% else %}تصویر محصول{% endif %}</div><h3>{{ item.name }}</h3><p>{{ item.final_price|floatformat:0 }} تومان</p></a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="editorial-banner"><div><h3>بخشی از داستان رمـیصا</h3><p>انتخابی ساده، برای روزهایی که می‌خواهی خودت باشی.</p></div><div class="banner-oval">RUMISA / 1405</div></div>
+  </section>
+</section>
+<script>
+  const price = document.getElementById('product-price');
+  const qty = document.getElementById('qty');
+  const qtyInput = document.getElementById('quantity-input');
+  document.querySelectorAll('.swatch input').forEach(input => input.addEventListener('change', () => { price.textContent = Number(input.dataset.price).toLocaleString('fa-IR'); }));
+  document.querySelector('[data-plus]')?.addEventListener('click', () => { qty.textContent = +qty.textContent + 1; qtyInput.value = qty.textContent; });
+  document.querySelector('[data-minus]')?.addEventListener('click', () => { qty.textContent = Math.max(1, +qty.textContent - 1); qtyInput.value = qty.textContent; });
+</script>
+{% endblock %}
