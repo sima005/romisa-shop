@@ -7,24 +7,24 @@
     <div class="hero-copy">
       <label>COLLECTION / 1405</label>
       <h1 id="hero-title">انتخابی برای<br>لحظه‌های خاص تو</h1>
-      <p>چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p>
+      <div class="hero-copy-row">
+        <p>چادرهایی زیبا، سبک و راحت<br>با طرح‌هایی که امضای رمـیصا را دارند.</p>
+        <a class="btn hero-copy-btn" href="{% url 'shop' %}">مشاهده کالکشن <span>←</span></a>
+      </div>
     </div>
 
     <div class="hero-side-copy">
       <label>NEW COLLECTION</label>
       <p>پوششی با ظرافت<br>برای هر روز و هر مناسبت</p>
-      <a class="btn hero-collection-btn" href="{% url 'shop' %}">مشاهده کالکشن <span>←</span></a>
     </div>
 
     <div class="hero-art" aria-label="اسلایدر کالکشن جدید">
       <div class="hero-art-inner">
         <div class="hero-slider" data-interval="2000">
           <img class="hero-slide is-active" src="{% static 'images/romisa-hero.png' %}" alt="کالکشن جدید رمـیصا" fetchpriority="high">
-          {# عکس‌های بعدی را با همین الگو اضافه کن:
-             romisa-hero-2.png
-             romisa-hero-3.png
-             romisa-hero-4.png
-          #}
+          <img class="hero-slide" src="{% static 'images/romisa-hero-2.png' %}" alt="کالکشن جدید رمـیصا">
+          <img class="hero-slide" src="{% static 'images/romisa-hero-3.png' %}" alt="کالکشن جدید رمـیصا">
+          <img class="hero-slide" src="{% static 'images/romisa-hero-4.png' %}" alt="کالکشن جدید رمـیصا">
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <article class="feature-card"><span class="feature-number">04</span><div><h3>انتخاب مطمئن</h3><p>کیفیتی که برای هر موقعیت همراهت می‌ماند</p></div></article>
     </div>
     <span class="hero-line left" aria-hidden="true"></span><span class="hero-line right" aria-hidden="true"></span>
-    <span class="hero-index">01 / 03</span>
+    <span class="hero-index">01 / 04</span>
   </section>
 
   <div class="brand-row" aria-label="برند رمـیصا">
@@ -75,13 +75,13 @@
   const slider = document.querySelector('.hero-slider');
   if (!slider) return;
 
-  const slides = slider.querySelectorAll('.hero-slide');
+  const slides = Array.from(slider.querySelectorAll('.hero-slide'));
   if (slides.length < 2) return;
 
   let current = 0;
   const interval = Number(slider.dataset.interval) || 2000;
 
-  setInterval(function () {
+  window.setInterval(function () {
     slides[current].classList.remove('is-active');
     current = (current + 1) % slides.length;
     slides[current].classList.add('is-active');
