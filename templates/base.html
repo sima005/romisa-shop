@@ -7,6 +7,7 @@
   <title>{% block title %}رمـیصا{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'css/site.css' %}">
   <link rel="stylesheet" href="{% static 'css/rumisa-refinement.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home-hero-fix.css' %}">
   {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -23,53 +24,15 @@
     <a class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}" href="{% url 'cart' %}">سبد خرید</a>
   </nav>
   <div class="site-actions">
-    <a href="{% url 'shop' %}" aria-label="جستجو" class="action-icon">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
-    </a>
-    <a href="/admin/" aria-label="حساب کاربری" class="action-icon">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20c.8-3.3 3.1-5 6.5-5s5.7 1.7 6.5 5"></path></svg>
-    </a>
-    <a href="{% url 'cart' %}" aria-label="سبد خرید" class="action-icon cart-action">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l1.5 11h10L20 8H7"></path><circle cx="9" cy="20" r="1"></circle><circle cx="17" cy="20" r="1"></circle></svg>
-      {% if cart_count %}<b>{{ cart_count }}</b>{% endif %}
-    </a>
+    <a href="{% url 'shop' %}" aria-label="جستجو" class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 5 5"></path></svg></a>
+    <a href="/admin/" aria-label="حساب کاربری" class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20c.8-3.3 3.1-5 6.5-5s5.7 1.7 6.5 5"></path></svg></a>
+    <a href="{% url 'cart' %}" aria-label="سبد خرید" class="action-icon cart-action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l1.5 11h10L20 8H7"></path><circle cx="9" cy="20" r="1"></circle><circle cx="17" cy="20" r="1"></circle></svg>{% if cart_count %}<b>{{ cart_count }}</b>{% endif %}</a>
   </div>
   <button class="menu-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false">☰</button>
 </header>
-
-{% if messages %}
-  <div class="toast-stack">
-    {% for message in messages %}<div class="toast">{{ message }}</div>{% endfor %}
-  </div>
-{% endif %}
-
+{% if messages %}<div class="toast-stack">{% for message in messages %}<div class="toast">{{ message }}</div>{% endfor %}</div>{% endif %}
 <main>{% block content %}{% endblock %}</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>رمـیصا</strong>
-      <span>rumisa_shop</span>
-      <small>انتخابی ساده، برای لحظه‌های خاص تو</small>
-    </div>
-    <div class="footer-links">
-      <div><b>رمـیصا</b><a href="{% url 'about' %}">درباره ما</a><a href="{% url 'contact' %}">تماس با ما</a></div>
-      <div><b>فروشگاه</b><a href="{% url 'shop' %}">همه محصولات</a><a href="{% url 'cart' %}">سبد خرید</a></div>
-      <div><b>راهنما</b><a href="{% url 'checkout' %}">پرداخت و سفارش</a><a href="{% url 'contact' %}">پشتیبانی</a></div>
-    </div>
-  </div>
-  <div class="footer-bottom"><span>© 1405 RUMISA</span><span>پوشش اصیل، با نگاه امروزی.</span></div>
-</footer>
-
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.site-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>رمـیصا</strong><span>rumisa_shop</span><small>انتخابی ساده، برای لحظه‌های خاص تو</small></div><div class="footer-links"><div><b>رمـیصا</b><a href="{% url 'about' %}">درباره ما</a><a href="{% url 'contact' %}">تماس با ما</a></div><div><b>فروشگاه</b><a href="{% url 'shop' %}">همه محصولات</a><a href="{% url 'cart' %}">سبد خرید</a></div><div><b>راهنما</b><a href="{% url 'checkout' %}">پرداخت و سفارش</a><a href="{% url 'contact' %}">پشتیبانی</a></div></div></div><div class="footer-bottom"><span>© 1405 RUMISA</span><span>پوشش اصیل، با نگاه امروزی.</span></div></footer>
+<script>const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.site-nav');if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open?'true':'false')})}</script>
 </body>
 </html>
