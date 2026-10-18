@@ -1,1 +1,13 @@
-{% extends 'base.html' %}{% block title %}پرداخت | رمـیصا{% endblock %}{% block content %}<section class="checkout"><h1>تکمیل سفارش</h1>{% if items %}<form method="post" class="checkout-form">{% csrf_token %}<label>نام و نام خانوادگی<input name="name" required></label><label>شماره تماس<input name="phone" required></label><label>آدرس کامل<textarea name="address" required></textarea></label><div class="summary"><p>مبلغ سفارش <b>{{ total|floatformat:0 }} تومان</b></p><button class="btn full">ثبت سفارش</button></div></form>{% else %}<p>سبد خرید خالی است.</p>{% endif %}</section>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}پرداخت | رمـیصا{% endblock %}
+{% block content %}
+<section class="page-shell">
+  <div class="page-title"><div><span class="collection-kicker">CHECKOUT</span><h1>تکمیل سفارش</h1></div><p>اطلاعاتت را وارد کن تا سفارش ثبت شود.</p></div>
+  {% if items %}
+    <div class="checkout-layout">
+      <form method="post" class="checkout-form">{% csrf_token %}<label class="form-field">نام و نام خانوادگی<input name="name" required></label><label class="form-field">شماره تماس<input name="phone" required></label><label class="form-field">آدرس کامل<textarea name="address" required></textarea></label><button class="btn" type="submit">ثبت سفارش</button></form>
+      <aside class="summary checkout-summary"><h3>خلاصه سفارش</h3>{% for product,variant,qty,price in items %}<div class="summary-row"><span>{{ product.name }} × {{ qty }}</span><b>{{ price|floatformat:0 }}</b></div>{% endfor %}<div class="summary-row"><span>مبلغ نهایی</span><b>{{ total|floatformat:0 }} تومان</b></div></aside>
+    </div>
+  {% else %}<div class="empty-state">سبد خرید خالی است.<br><a class="btn" style="margin-top:18px" href="{% url 'shop' %}">بازگشت به فروشگاه</a></div>{% endif %}
+</section>
+{% endblock %}
