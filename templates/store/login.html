@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}ورود | رمـیصا{% endblock %}
+{% block content %}
+<section class="auth-page">
+  <div class="auth-card">
+    <span class="collection-kicker">RUMISA ACCOUNT</span>
+    <h1>خوش برگشتی</h1>
+    <p class="auth-intro">برای ادامه خرید وارد حساب کاربری‌ات شو.</p>
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+      {% for field in form %}
+        <label class="form-field">{{ field.label }}{{ field }}{% if field.errors %}<small>{{ field.errors|striptags }}</small>{% endif %}</label>
+      {% endfor %}
+      <input type="hidden" name="next" value="{{ next }}">
+      <button class="btn auth-submit" type="submit">ورود به حساب</button>
+    </form>
+    <p class="auth-switch">حساب کاربری نداری؟ <a href="{% url 'signup' %}">ثبت نام کن</a></p>
+  </div>
+</section>
+{% endblock %}
