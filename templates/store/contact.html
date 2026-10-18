@@ -1,1 +1,10 @@
-{% extends 'base.html' %}{% block title %}تماس با ما | رمـیصا{% endblock %}{% block content %}<section class="contact"><div><h1>با ما در تماس باش</h1><p>برای سفارش، پیگیری یا پرسش درباره مدل‌ها پیام بدهید.</p><form method="post" class="contact-form">{% csrf_token %}<label>نام و نام خانوادگی<input name="name" required></label><label>ایمیل یا شماره تماس<input name="contact" required></label><label>پیام شما<textarea name="message" required></textarea></label><button class="btn">ارسال پیام</button></form></div><aside><h3>اینستاگرام</h3><p>@rumisa_shooop</p><h3>ساعت پاسخگویی</h3><p>شنبه تا پنجشنبه</p></aside></section>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}تماس با ما | رمـیصا{% endblock %}
+{% block content %}
+<section class="contact-grid">
+  <div class="contact-copy"><span class="collection-kicker">CONTACT RUMISA</span><h1>با ما در تماس باش</h1><p>برای سفارش، پیگیری یا پرسش درباره مدل‌ها پیام بدهید. ما در اولین فرصت پاسخ می‌دهیم.</p>
+    <form method="post" class="contact-form">{% csrf_token %}<label class="form-field">نام و نام خانوادگی<input name="name" required></label><label class="form-field">ایمیل یا شماره تماس<input name="contact" required></label><label class="form-field">پیام شما<textarea name="message" required></textarea></label><button class="btn" type="submit">ارسال پیام</button></form>
+  </div>
+  <aside class="contact-side"><h3>اینستاگرام</h3><p>@rumisa_shooop</p><h3>ساعت پاسخگویی</h3><p>شنبه تا پنجشنبه</p><h3>تجربه خرید</h3><p>اگر برای انتخاب مدل یا رنگ مردد هستی، پیام بده تا راهنمایی‌ات کنیم.</p></aside>
+</section>
+{% endblock %}
