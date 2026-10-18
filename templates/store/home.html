@@ -2,6 +2,29 @@
 {% load static %}
 {% block title %}رمـیصا | انتخابی برای لحظه‌های خاص تو{% endblock %}
 {% block content %}
+<style>
+  /* The outer Hero panel is intentionally wide; the center oval/art keeps its original size. */
+  .home-hero {
+    width: calc(100% - 20px) !important;
+    max-width: none !important;
+    height: 600px;
+  }
+  .home-hero .hero-art {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media (max-width: 900px) {
+    .home-hero {
+      width: calc(100% - 20px) !important;
+      height: auto;
+      min-height: 720px;
+    }
+    .home-hero .hero-art {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+</style>
 <div class="home-page">
   <section class="home-hero" aria-labelledby="hero-title">
     <div class="hero-copy">
