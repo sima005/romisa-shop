@@ -3,26 +3,21 @@
 {% block title %}رمـیصا | انتخابی برای لحظه‌های خاص تو{% endblock %}
 {% block content %}
 <style>
-  /* The outer Hero panel is intentionally wide; the center oval/art keeps its original size. */
-  .home-hero {
-    width: calc(100% - 20px) !important;
-    max-width: none !important;
-    height: 600px;
+  .home-hero { width:calc(100% - 20px)!important; max-width:none!important; height:600px; }
+  .home-hero .hero-art { left:50%; transform:translateX(-50%); width:450px; height:540px; }
+  .home-hero .hero-art-inner img { width:94%; height:94%; object-fit:contain; }
+  .home-hero .hero-features { width:315px; gap:12px; bottom:48px; }
+  .home-hero .hero-features.left { left:42px; }
+  .home-hero .hero-features.right { right:38px; }
+  .home-hero .feature-card { height:72px; padding:12px 15px; }
+  @media (max-width:1100px) {
+    .home-hero .hero-art { width:430px; height:525px; }
+    .home-hero .hero-features { width:285px; }
   }
-  .home-hero .hero-art {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  @media (max-width: 900px) {
-    .home-hero {
-      width: calc(100% - 20px) !important;
-      height: auto;
-      min-height: 720px;
-    }
-    .home-hero .hero-art {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+  @media (max-width:900px) {
+    .home-hero { width:calc(100% - 20px)!important; height:auto; min-height:720px; }
+    .home-hero .hero-art { left:50%; transform:translateX(-50%); width:min(86vw,470px); height:auto; aspect-ratio:420/520; }
+    .home-hero .hero-features { width:100%; max-width:520px; }
   }
 </style>
 <div class="home-page">
@@ -63,6 +58,6 @@
   </section>
 </div>
 <script>
-(function(){const slider=document.querySelector('.hero-slider');if(!slider)return;const slides=[...slider.querySelectorAll('.hero-slide')];slides.forEach((s,i)=>s.addEventListener('error',()=>{s.remove();},{once:true}));if(slides.length<2)return;let current=0;const interval=Number(slider.dataset.interval)||2000;setInterval(()=>{slides[current].classList.remove('is-active');current=(current+1)%slides.length;slides[current].classList.add('is-active');},interval);})();
+(function(){const slider=document.querySelector('.hero-slider');if(!slider)return;const slides=[...slider.querySelectorAll('.hero-slide')];slides.forEach((s)=>s.addEventListener('error',()=>{s.remove();},{once:true}));if(slides.length<2)return;let current=0;const interval=Number(slider.dataset.interval)||2000;setInterval(()=>{slides[current].classList.remove('is-active');current=(current+1)%slides.length;slides[current].classList.add('is-active');},interval);})();
 </script>
 {% endblock %}
