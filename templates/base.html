@@ -12,10 +12,7 @@
 </head>
 <body>
 <header class="site-header" aria-label="ناوبری اصلی">
-  <a class="site-brand" href="{% url 'home' %}" aria-label="صفحه اصلی رمـیصا">
-    <span>رمـیصا</span>
-    <small>rumisa_shop</small>
-  </a>
+  <a class="site-brand" href="{% url 'home' %}" aria-label="صفحه اصلی رمـیصا"><span>رمـیصا</span><small>rumisa_shop</small></a>
   <nav class="site-nav">
     <a class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">خانه</a>
     <a class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}" href="{% url 'shop' %}">فروشگاه</a>
@@ -25,7 +22,7 @@
   </nav>
   <div class="site-actions">
     <a href="{% url 'shop' %}" aria-label="جستجو" class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 5 5"></path></svg></a>
-    <a href="/admin/" aria-label="حساب کاربری" class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20c.8-3.3 3.1-5 6.5-5s5.7 1.7 6.5 5"></path></svg></a>
+    <a href="{% if request.user.is_authenticated %}{% url 'account' %}{% else %}{% url 'login' %}{% endif %}" aria-label="حساب کاربری" class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20c.8-3.3 3.1-5 6.5-5s5.7 1.7 6.5 5"></path></svg></a>
     <a href="{% url 'cart' %}" aria-label="سبد خرید" class="action-icon cart-action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l1.5 11h10L20 8H7"></path><circle cx="9" cy="20" r="1"></circle><circle cx="17" cy="20" r="1"></circle></svg>{% if cart_count %}<b>{{ cart_count }}</b>{% endif %}</a>
   </div>
   <button class="menu-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false">☰</button>
