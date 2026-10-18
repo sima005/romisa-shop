@@ -12,23 +12,15 @@
         <a class="btn hero-copy-btn" href="{% url 'shop' %}">مشاهده کالکشن <span>←</span></a>
       </div>
     </div>
-
-    <div class="hero-side-copy">
-      <label>NEW COLLECTION</label>
-      <p>پوششی با ظرافت<br>برای هر روز و هر مناسبت</p>
-    </div>
-
+    <div class="hero-side-copy"><label>NEW COLLECTION</label><p>پوششی با ظرافت<br>برای هر روز و هر مناسبت</p></div>
     <div class="hero-art" aria-label="اسلایدر کالکشن جدید">
-      <div class="hero-art-inner">
-        <div class="hero-slider" data-interval="2000">
-          <img class="hero-slide is-active" src="{% static 'images/romisa-hero.png' %}" alt="کالکشن جدید رمـیصا" fetchpriority="high">
-          <img class="hero-slide" src="{% static 'images/romisa-hero-2.png' %}" alt="کالکشن جدید رمـیصا">
-          <img class="hero-slide" src="{% static 'images/romisa-hero-3.png' %}" alt="کالکشن جدید رمـیصا">
-          <img class="hero-slide" src="{% static 'images/romisa-hero-4.png' %}" alt="کالکشن جدید رمـیصا">
-        </div>
-      </div>
+      <div class="hero-art-inner"><div class="hero-slider" data-interval="2000">
+        <img class="hero-slide is-active" src="{% static 'images/romisa-hero.png' %}" alt="کالکشن جدید رمـیصا" fetchpriority="high">
+        <img class="hero-slide" src="{% static 'images/romisa-hero-2.png' %}" alt="کالکشن جدید رمـیصا" loading="lazy">
+        <img class="hero-slide" src="{% static 'images/romisa-hero-3.png' %}" alt="کالکشن جدید رمـیصا" loading="lazy">
+        <img class="hero-slide" src="{% static 'images/romisa-hero-4.png' %}" alt="کالکشن جدید رمـیصا" loading="lazy">
+      </div></div>
     </div>
-
     <div class="hero-features left">
       <article class="feature-card"><span class="feature-number">01</span><div><h3>تازگی و ظرافت</h3><p>پارچه‌ای با کیفیت و طراحی دقیق برای انتخابی ماندگار</p></div></article>
       <article class="feature-card"><span class="feature-number">02</span><div><h3>سبک و راحت</h3><p>فرمی راحت برای استفاده روزمره و استایل مرتب</p></div></article>
@@ -37,55 +29,17 @@
       <article class="feature-card"><span class="feature-number">03</span><div><h3>جزئیات خاص</h3><p>طرح‌هایی که امضای رمـیصا را به نمایش می‌گذارند</p></div></article>
       <article class="feature-card"><span class="feature-number">04</span><div><h3>انتخاب مطمئن</h3><p>کیفیتی که برای هر موقعیت همراهت می‌ماند</p></div></article>
     </div>
-    <span class="hero-line left" aria-hidden="true"></span><span class="hero-line right" aria-hidden="true"></span>
-    <span class="hero-index">01 / 04</span>
+    <span class="hero-line left" aria-hidden="true"></span><span class="hero-line right" aria-hidden="true"></span><span class="hero-index">01 / 04</span>
   </section>
-
-  <div class="brand-row" aria-label="برند رمـیصا">
-    <span>LOGOTYPE</span><span>RUMISA</span><span>LOGOTYPE</span><span>ATELIER</span><span>RUMISA</span><span>LOGOTYPE</span>
-  </div>
-
+  <div class="brand-row" aria-label="برند رمـیصا"><span>LOGOTYPE</span><span>RUMISA</span><span>LOGOTYPE</span><span>ATELIER</span><span>RUMISA</span><span>LOGOTYPE</span></div>
   <section class="collection" aria-labelledby="collection-title">
-    <div class="collection-head">
-      <div><span class="collection-kicker">کالکشن منتخب</span><h2 id="collection-title">زیباترین انتخاب‌های رمـیصا</h2></div>
-      <a class="outline-btn" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها <span>←</span></a>
-    </div>
-
+    <div class="collection-head"><div><span class="collection-kicker">کالکشن منتخب</span><h2 id="collection-title">زیباترین انتخاب‌های رمـیصا</h2></div><a class="outline-btn" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها <span>←</span></a></div>
     <div class="category-ellipses">
-      {% for item in categories %}
-        <a class="category-pill" href="{% url 'shop' %}?category={{ item.category.slug }}" aria-label="مشاهده دسته {{ item.category.name }}">
-          {% if item.product and item.product.image %}<img src="{{ item.product.image.url }}" alt="{{ item.category.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}
-          <span>{{ item.category.name }}</span>
-        </a>
-      {% empty %}
-        {% for p in products|slice:":4" %}
-          <a class="category-pill" href="{% url 'product' p.slug %}" aria-label="{{ p.name }}">
-            {% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}
-            <span>{{ p.name }}</span>
-          </a>
-        {% endfor %}
-      {% endfor %}
-    </div>
-    <p class="collection-note">انتخاب‌های رمـیصا برای روزهای ساده و لحظه‌های خاص</p>
+      {% for item in categories %}<a class="category-pill" href="{% url 'shop' %}?category={{ item.category.slug }}" aria-label="مشاهده دسته {{ item.category.name }}">{% if item.product and item.product.image %}<img src="{{ item.product.image.url }}" alt="{{ item.category.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}<span>{{ item.category.name }}</span></a>{% empty %}{% for p in products|slice:":4" %}<a class="category-pill" href="{% url 'product' p.slug %}" aria-label="{{ p.name }}">{% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}<span>{{ p.name }}</span></a>{% endfor %}{% endfor %}
+    </div><p class="collection-note">انتخاب‌های رمـیصا برای روزهای ساده و لحظه‌های خاص</p>
   </section>
 </div>
-
 <script>
-(function () {
-  const slider = document.querySelector('.hero-slider');
-  if (!slider) return;
-
-  const slides = Array.from(slider.querySelectorAll('.hero-slide'));
-  if (slides.length < 2) return;
-
-  let current = 0;
-  const interval = Number(slider.dataset.interval) || 2000;
-
-  window.setInterval(function () {
-    slides[current].classList.remove('is-active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('is-active');
-  }, interval);
-})();
+(function(){const slider=document.querySelector('.hero-slider');if(!slider)return;const slides=[...slider.querySelectorAll('.hero-slide')];slides.forEach((s,i)=>s.addEventListener('error',()=>{s.remove();},{once:true}));if(slides.length<2)return;let current=0;const interval=Number(slider.dataset.interval)||2000;setInterval(()=>{slides[current].classList.remove('is-active');current=(current+1)%slides.length;slides[current].classList.add('is-active');},interval);})();
 </script>
 {% endblock %}
