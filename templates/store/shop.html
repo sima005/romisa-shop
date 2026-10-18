@@ -1,1 +1,16 @@
-{% extends 'base.html' %}{% block title %}فروشگاه | رمـیصا{% endblock %}{% block content %}<section class="page-head"><h1>فروشگاه</h1><p>مدل مورد نظرت را پیدا کن</p></section><div class="shop-toolbar"><div><span>دسته‌بندی</span>{% for c in categories %}<a class="chip {% if selected == c.slug %}selected{% endif %}" href="?category={{ c.slug }}">{{ c.name }}</a>{% endfor %}<a class="chip {% if not selected %}selected{% endif %}" href="{% url 'shop' %}">همه</a></div><form><input name="q" value="{{ request.GET.q }}" placeholder="جستجوی چادر..."><button>جستجو</button></form></div><div class="grid shop-grid">{% for p in products %}<article class="card"><a href="{% url 'product' p.slug %}" class="photo">{% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}تصویر محصول{% endif %}</a><h3>{{ p.name }}</h3><p>{{ p.fabric|default:'سبک و روان' }}</p><strong>{{ p.final_price|floatformat:0 }} تومان</strong>{% if p.discount_percent %}<del>{{ p.base_price }} تومان</del>{% endif %}</article>{% empty %}<p>هنوز محصولی اضافه نشده؛ از پنل مدیریت محصول بساز.</p>{% endfor %}</div>{% endblock %}
+{% extends 'base.html' %}
+{% block title %}فروشگاه | رمـیصا{% endblock %}
+{% block content %}
+<section class="page-shell">
+  <div class="page-title"><div><span class="collection-kicker">RUMISA SHOP</span><h1>فروشگاه</h1></div><p>مدل مورد نظرت را با آرامش پیدا کن.</p></div>
+  <div class="shop-toolbar">
+    <div class="chips"><a class="chip {% if not selected %}selected{% endif %}" href="{% url 'shop' %}">همه</a>{% for c in categories %}<a class="chip {% if selected == c.slug %}selected{% endif %}" href="?category={{ c.slug }}">{{ c.name }}</a>{% endfor %}</div>
+    <form class="search-form"><input name="q" value="{{ request.GET.q }}" placeholder="جستجوی چادر..."><button type="submit">جستجو</button></form>
+  </div>
+  <div class="shop-grid">
+    {% for p in products %}
+      <article class="shop-card"><a href="{% url 'product' p.slug %}" class="shop-photo">{% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}تصویر محصول{% endif %}</a><h3>{{ p.name }}</h3><p>{{ p.fabric|default:'سبک و روان' }}</p><div class="price-row"><strong>{{ p.final_price|floatformat:0 }} تومان</strong>{% if p.discount_percent %}<del>{{ p.base_price|floatformat:0 }}</del>{% endif %}</div></article>
+    {% empty %}<div class="empty-state">هنوز محصولی اضافه نشده؛ از پنل مدیریت محصول بساز.</div>{% endfor %}
+  </div>
+</section>
+{% endblock %}
