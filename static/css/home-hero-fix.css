@@ -1,8 +1,18 @@
 .home-hero{width:calc(100% - 20px)!important;max-width:none!important;margin-left:10px!important;margin-right:10px!important;}
-.home-hero .hero-art{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:420px!important;height:520px!important;}
-.home-hero .hero-art-inner{width:100%!important;height:100%!important;}
+.home-hero .hero-art{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:410px!important;height:570px!important;top:8px!important;}
+.home-hero .hero-art-inner{width:405px!important;height:560px!important;margin:0 auto!important;}
 .home-hero .hero-slider{position:relative;width:100%!important;height:100%!important;overflow:hidden!important;}
-.home-hero .hero-slide{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;padding:8%!important;opacity:0!important;transition:opacity .45s ease!important;}
+.home-hero .hero-slide{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;padding:4%!important;opacity:0!important;transition:opacity .45s ease!important;}
 .home-hero .hero-slide.is-active{opacity:1!important;}
-@media(max-width:1100px){.home-hero .hero-art{width:360px!important;height:470px!important;}}
-@media(max-width:800px){.home-hero{width:calc(100% - 16px)!important;margin:8px!important;height:auto!important;min-height:760px!important}.home-hero .hero-art{position:relative!important;left:auto!important;top:auto!important;transform:none!important;width:min(78vw,360px)!important;height:min(98vw,450px)!important;margin:150px auto 0!important}.home-hero .hero-copy{left:24px!important;right:24px!important;top:30px!important;width:auto!important}.home-hero .hero-side-copy{right:24px!important;top:auto!important;bottom:95px!important;width:auto!important}.home-hero .hero-features{display:none!important}}
+.home-hero .hero-features{width:150px!important;gap:12px!important;bottom:48px!important;}
+.home-hero .hero-features.left{left:42px!important;}
+.home-hero .hero-features.right{right:38px!important;}
+.home-hero .feature-card{width:150px!important;height:80px!important;padding:12px 11px!important;grid-template-columns:22px 1fr!important;gap:5px!important;}
+.home-hero .feature-card h3{font-size:11px!important;margin-bottom:5px!important;}
+.home-hero .feature-card p{font-size:8px!important;line-height:1.7!important;}
+.category-ellipses{grid-template-columns:repeat(6,1fr)!important;gap:18px!important;padding:15px 3%!important;}
+.category-pill{height:215px!important;max-width:145px!important;}
+.category-pill:nth-child(2n){height:205px!important;}
+.category-pill span{opacity:1!important;bottom:50%!important;right:50%!important;transform:translate(50%,50%)!important;background:transparent!important;padding:0!important;font-size:11px!important;font-weight:600!important;white-space:nowrap!important;}
+@media(max-width:1100px){.home-hero .hero-art{width:380px!important;height:525px!important}.home-hero .hero-art-inner{width:375px!important;height:515px!important}.home-hero .hero-features{width:140px!important}.home-hero .feature-card{width:140px!important}.category-ellipses{grid-template-columns:repeat(3,1fr)!important;}.category-pill{max-width:145px!important}}
+@media(max-width:800px){.home-hero{width:calc(100% - 16px)!important;margin:8px!important;height:auto!important;min-height:760px!important}.home-hero .hero-art{position:relative!important;left:auto!important;top:auto!important;transform:none!important;width:min(78vw,360px)!important;height:min(98vw,450px)!important;margin:150px auto 0!important}.home-hero .hero-art-inner{width:100%!important;height:100%!important}.home-hero .hero-copy{left:24px!important;right:24px!important;top:30px!important;width:auto!important}.home-hero .hero-side-copy{right:24px!important;top:auto!important;bottom:95px!important;width:auto!important}.home-hero .hero-features{display:none!important}.category-ellipses{height:auto!important;grid-template-columns:repeat(2,1fr)!important;gap:16px!important;padding:20px!important}.category-pill,.category-pill:nth-child(2n){height:190px!important;max-width:140px!important}}
