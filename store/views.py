@@ -11,10 +11,12 @@ def home(request):
     products = list(Product.objects.filter(active=True, featured=True).prefetch_related('variants')[:4])
     if not products:
         products = list(Product.objects.filter(active=True).prefetch_related('variants')[:4])
+    category_names = ['چادر نماز', 'چادر رنگی', 'چادر میزبان', 'اکسسوری', 'روسری', 'عبا']
     categories = []
-    for category in Category.objects.filter(active=True)[:4]:
-        category_product = Product.objects.filter(active=True, category=category).exclude(image='').first()
-        categories.append({'category': category, 'product': category_product})
+    for name in category_names:
+        category = Category.objects.filter(active=True, name=name).first()
+        category_product = Product.objects.filter(active=True, category=category).exclude(image='').first() if category else None
+        categories.append({'category': category, 'product': category_product, 'name': name, 'slug': category.slug if category else name})
     return render(request, 'store/home.html', {'products': products, 'categories': categories})
 
 
