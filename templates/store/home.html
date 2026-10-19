@@ -2,24 +2,6 @@
 {% load static %}
 {% block title %}رمـیصا | انتخابی برای لحظه‌های خاص تو{% endblock %}
 {% block content %}
-<style>
-  .home-hero { width:calc(100% - 20px)!important; max-width:none!important; height:600px; }
-  .home-hero .hero-art { left:50%; transform:translateX(-50%); width:450px; height:540px; }
-  .home-hero .hero-art-inner img { width:94%; height:94%; object-fit:contain; }
-  .home-hero .hero-features { width:315px; gap:12px; bottom:48px; }
-  .home-hero .hero-features.left { left:42px; }
-  .home-hero .hero-features.right { right:38px; }
-  .home-hero .feature-card { height:72px; padding:12px 15px; }
-  @media (max-width:1100px) {
-    .home-hero .hero-art { width:430px; height:525px; }
-    .home-hero .hero-features { width:285px; }
-  }
-  @media (max-width:900px) {
-    .home-hero { width:calc(100% - 20px)!important; height:auto; min-height:720px; }
-    .home-hero .hero-art { left:50%; transform:translateX(-50%); width:min(86vw,470px); height:auto; aspect-ratio:420/520; }
-    .home-hero .hero-features { width:100%; max-width:520px; }
-  }
-</style>
 <div class="home-page">
   <section class="home-hero" aria-labelledby="hero-title">
     <div class="hero-copy">
@@ -51,13 +33,19 @@
   </section>
   <div class="brand-row" aria-label="برند رمـیصا"><span>LOGOTYPE</span><span>RUMISA</span><span>LOGOTYPE</span><span>ATELIER</span><span>RUMISA</span><span>LOGOTYPE</span></div>
   <section class="collection" aria-labelledby="collection-title">
-    <div class="collection-head"><div><span class="collection-kicker">کالکشن منتخب</span><h2 id="collection-title">زیباترین انتخاب‌های رمـیصا</h2></div><a class="outline-btn" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها <span>←</span></a></div>
+    <div class="collection-head"><div><span class="collection-kicker">کالکشن منتخب</span><h2 id="collection-title">دسته‌بندی‌های رمـیصا</h2></div><a class="outline-btn" href="{% url 'shop' %}">مشاهده همه کالکشن‌ها <span>←</span></a></div>
     <div class="category-ellipses">
-      {% for item in categories %}<a class="category-pill" href="{% url 'shop' %}?category={{ item.category.slug }}" aria-label="مشاهده دسته {{ item.category.name }}">{% if item.product and item.product.image %}<img src="{{ item.product.image.url }}" alt="{{ item.category.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}<span>{{ item.category.name }}</span></a>{% empty %}{% for p in products|slice:":4" %}<a class="category-pill" href="{% url 'product' p.slug %}" aria-label="{{ p.name }}">{% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}<span>{{ p.name }}</span></a>{% endfor %}{% endfor %}
-    </div><p class="collection-note">انتخاب‌های رمـیصا برای روزهای ساده و لحظه‌های خاص</p>
+      {% for item in categories %}
+      <a class="category-pill" href="{% url 'shop' %}?category={{ item.slug|urlencode }}" aria-label="مشاهده دسته {{ item.name }}">
+        {% if item.product and item.product.image %}<img src="{{ item.product.image.url }}" alt="{{ item.name }}">{% else %}<i class="pill-placeholder"></i>{% endif %}
+        <span>{{ item.name }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="collection-note">انتخاب‌های رمـیصا برای روزهای ساده و لحظه‌های خاص</p>
   </section>
 </div>
 <script>
-(function(){const slider=document.querySelector('.hero-slider');if(!slider)return;const slides=[...slider.querySelectorAll('.hero-slide')];slides.forEach((s)=>s.addEventListener('error',()=>{s.remove();},{once:true}));if(slides.length<2)return;let current=0;const interval=Number(slider.dataset.interval)||2000;setInterval(()=>{slides[current].classList.remove('is-active');current=(current+1)%slides.length;slides[current].classList.add('is-active');},interval);})();
+(function(){const slider=document.querySelector('.hero-slider');if(!slider)return;const slides=[...slider.querySelectorAll('.hero-slide')];if(slides.length<2)return;let current=0;const interval=Number(slider.dataset.interval)||2000;setInterval(()=>{slides[current].classList.remove('is-active');current=(current+1)%slides.length;slides[current].classList.add('is-active');},interval);})();
 </script>
 {% endblock %}
